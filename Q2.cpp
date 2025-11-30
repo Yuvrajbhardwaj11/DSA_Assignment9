@@ -42,3 +42,38 @@ int main() {
 
     DFS(graph, 5, 0);
 }
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void DFS(int* graph[], int V, int u, bool visited[]) {
+    visited[u] = true;
+    cout << u << " ";
+
+    for (int i = 0; graph[u][i] != -1; i++) {
+        int v = graph[u][i];
+        if (!visited[v]) {
+            DFS(graph, V, v, visited);
+        }
+    }
+}
+
+int main() {
+    int arr0[] = {1, 3, -1};
+    int arr1[] = {0, 2, 4, -1};
+    int arr2[] = {1, 3, -1};
+    int arr3[] = {0, 2, 4, -1};
+    int arr4[] = {1, 3, -1};
+
+    int* graph2[5] = {arr0, arr1, arr2, arr3, arr4};
+
+    bool visited[100] = {false};
+
+    DFS(graph2, 5, 4, visited);
+
+    return 0;
+}
+
+

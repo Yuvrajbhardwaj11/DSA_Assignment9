@@ -45,3 +45,15 @@ int main(){
 
     return 0;
 }
+
+
+
+
+    // explore neighbors
+    for (int i = 0; graph[u][i] != -1; i++) {
+        int v = graph[u][i];
+        if (!visited[v]) {
+            DFS_rec(graph, visited, v);
+        }
+    }
+}
